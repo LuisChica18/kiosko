@@ -1,0 +1,74 @@
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.payment-card {
+  background-color: white;
+  border-radius: 24px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 400px;
+}
+
+.payment-card i {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-card h2 {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.payment-card p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Processing State */
+.processing-state i {
+  color: #2196F3;
+}
+
+.timer {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2196F3;
+  margin-top: 1rem;
+}
+
+/* Success State */
+.success-state i {
+  color: #4CAF50;
+}
+
+.order-number {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  font-size: 1.2rem;
+}
+
+.order-number .number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2196F3;
+  margin-top: 0.5rem;
+}
+
+/* Error State */
+.error-state i {
+  color: #f44336;
+}
+
+.error-state button {
+  margin-top: 1rem;
+}

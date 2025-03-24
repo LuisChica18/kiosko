@@ -1,0 +1,71 @@
+.fullscreen-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  gap: 4rem;
+}
+
+.central-image {
+  width: 200%;
+  text-align: center;
+}
+
+.logo {
+  max-width: 400px;  /* Increased from 300px */
+  height: auto;
+}
+
+.button-options {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.kiosk-button {
+  width: 280px !important;
+  height: 100px !important;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  transition: transform 0.2s ease;
+  background-color: white !important;
+  border: 2px solid #ddd !important;
+  color: #333 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.kiosk-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+}
+
+.kiosk-button .p-button-icon {
+  font-size: 10rem !important;
+  margin-bottom: 1.5rem !important;
+  color: #666 !important;
+}
+
+@media (max-width: 768px) {
+  .button-options {
+    flex-direction: column;
+  }
+
+  .kiosk-button {
+    width: 280px !important;
+    height: 200px !important;
+  }
+
+  .logo {
+    max-width: 320px;
+  }
+}

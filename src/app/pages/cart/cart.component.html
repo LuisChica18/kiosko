@@ -1,0 +1,49 @@
+<div class="cart-overlay" [class.visible]="cartItems.length > 0">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <div class="cart-summary">
+        Items: {{cartItems.length}}
+      </div>
+    </div>
+
+    <div class="cart-items">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-info">
+          <h3>{{item.name}}</h3>
+          <p class="item-price">${{item.price.toFixed(2)}}</p>
+        </div>
+        <div class="quantity-controls">
+          <button pButton type="button"
+                  icon="pi pi-minus"
+                  class="p-button-rounded p-button-text"
+                  (click)="updateItemQuantity(item, -1)">
+          </button>
+          <span class="quantity">{{item.quantity}}</span>
+          <button pButton type="button"
+                  icon="pi pi-plus"
+                  class="p-button-rounded p-button-text"
+                  (click)="updateItemQuantity(item, 1)">
+          </button>
+        </div>
+        <div class="item-total">
+          ${{item.totalPrice.toFixed(2)}}
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="total-amount">
+        <span>Total:</span>
+        <span class="amount">${{totalAmount.toFixed(2)}}</span>
+      </div>
+      <button pButton type="button"
+              label="Proceder al Pago"
+              icon="pi pi-check"
+              class="p-button-lg checkout-button"
+              [disabled]="cartItems.length === 0"
+              (click)="processPayment()">
+      </button>
+    </div>
+  </div>
+</div>

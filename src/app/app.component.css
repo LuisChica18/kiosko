@@ -1,0 +1,26 @@
+.fullscreen-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f7f7f9;
+  text-align: center;
+}
+
+.central-image img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.button-options {
+  display: flex;
+  gap: 2rem;
+}
+
+.button-options button {
+  width: 150px;
+  height: 50px;
+  font-size: 1.2rem;
+}
