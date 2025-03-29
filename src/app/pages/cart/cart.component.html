@@ -9,6 +9,9 @@
 
     <div class="cart-items">
       <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-image">
+          <img [src]="item.image" [alt]="item.name">
+        </div>
         <div class="item-info">
           <h3>{{item.name}}</h3>
           <p class="item-price">${{item.price.toFixed(2)}}</p>
@@ -44,6 +47,12 @@
               [disabled]="cartItems.length === 0"
               (click)="processPayment()">
       </button>
+      <button pButton type="button"
+                icon="pi pi-trash"
+                class="p-button-lg p-button-danger cancel-button"
+                label="Cancelar el pedido"
+                (click)="cancelOrder()">
+        </button>
     </div>
   </div>
 </div>
