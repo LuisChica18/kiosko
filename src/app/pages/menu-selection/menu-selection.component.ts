@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './../../interface/category.interface';
+import { Category } from '../../interface/category.interface';
 import { CartItem } from '../../interface/cart-item.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-selection',
@@ -11,6 +12,7 @@ export class MenuSelectionComponent implements OnInit {
 
   cartItems: CartItem[] = [];
   totalAmount: number = 0;
+  selectedCategory: Category | null = null;
   categories: Category[] = [
     {
       id: 1,
@@ -23,6 +25,20 @@ export class MenuSelectionComponent implements OnInit {
           description: '8 piezas de pollo, papas y bebidas',
           price: 24.99,
           image: 'assets/combo-familiar.jpg'
+        },
+        {
+          id: 2,
+          name: 'Combo Pareja',
+          description: '4 piezas de pollo, 2 papas y 2 bebidas',
+          price: 15.99,
+          image: 'assets/combo-pareja.jpg'
+        },
+        {
+          id: 2,
+          name: 'Combo Pareja',
+          description: '4 piezas de pollo, 2 papas y 2 bebidas',
+          price: 15.99,
+          image: 'assets/combo-pareja.jpg'
         },
         {
           id: 2,
@@ -98,9 +114,7 @@ export class MenuSelectionComponent implements OnInit {
     }
   ];
 
-  selectedCategory: Category | null = null;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     if (this.categories.length > 0) {
@@ -117,7 +131,7 @@ export class MenuSelectionComponent implements OnInit {
   }
 
   addToCart(item: any): void {
-    const existingItem = this.cartItems.find(cartItem => cartItem.id === item.id);
+    const existingItem: CartItem | undefined = this.cartItems.find(cartItem => cartItem.id === item.id);
 
     if (existingItem) {
       existingItem.quantity += 1;
@@ -128,7 +142,8 @@ export class MenuSelectionComponent implements OnInit {
         name: item.name,
         price: item.price,
         quantity: 1,
-        totalPrice: item.price
+        totalPrice: item.price,
+        image: item.image
       });
     }
 
@@ -138,8 +153,6 @@ export class MenuSelectionComponent implements OnInit {
   private calculateTotal(): void {
     this.totalAmount = this.cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
   }
-
-
 
   updateCartItemQuantity(event: {item: CartItem, quantity: number}): void {
     const cartItem = this.cartItems.find(i => i.id === event.item.id);
@@ -155,9 +168,16 @@ export class MenuSelectionComponent implements OnInit {
     this.calculateTotal();
   }
 
-  proceedToCheckout(): void {
-    // Implement checkout logic here
-    console.log('Proceeding to checkout with items:', this.cartItems);
+  clearCart(): void {
+    console.log('clear cart');
+    this.cartItems = [];
+    this.totalAmount = 0;
+  }
+
+  goToCheckout(): void {
+    if (this.cartItems.length > 0) {
+      this.router.navigate(['/checkout']);
+    }
   }
 
 }

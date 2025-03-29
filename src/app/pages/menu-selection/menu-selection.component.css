@@ -1,7 +1,8 @@
 .menu-container {
   display: flex;
-  height: 100vh;
+  height: 98vh;
   background-color: #f8f9fa;
+  position: relative;
 }
 
 .categories-sidebar {
@@ -32,12 +33,24 @@
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+  transition: margin-right 0.3s ease;
+}
+
+.items-container.shifted {
+  margin-right: 380px;
 }
 
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  align-items: start;
+}
+
+/* Add auto-flow to handle overflow items */
+.items-grid {
+  grid-auto-flow: dense;
+  grid-auto-rows: min-content;
 }
 
 .menu-item {

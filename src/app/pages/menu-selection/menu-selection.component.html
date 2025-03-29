@@ -1,7 +1,7 @@
 <div class="menu-container">
 
   <!-- Cart Icon -->
-  <div class="cart-icon">
+  <div class="cart-icon" (click)="goToCheckout()">
     <i class="pi pi-shopping-cart"></i>
     <span class="cart-badge" *ngIf="cartItemCount > 0">{{cartItemCount}}</span>
     <div class="cart-total" *ngIf="totalAmount > 0">${{totalAmount.toFixed(2)}}</div>
@@ -21,7 +21,7 @@
   </div>
 
   <!-- Items Grid -->
-  <div class="items-container" *ngIf="selectedCategory">
+  <div class="items-container" [class.shifted]="cartItems.length > 0" *ngIf="selectedCategory">
     <div class="items-grid">
       <div class="menu-item" *ngFor="let item of selectedCategory.items">
         <div class="item-image">
@@ -46,7 +46,8 @@
             [totalAmount]="totalAmount"
             (removeItem)="removeCartItem($event)"
             (updateQuantity)="updateCartItemQuantity($event)"
-            (checkout)="proceedToCheckout()">
+            (checkout)="goToCheckout()"
+            (clearCart)="clearCart()">
   </app-cart>
 
 </div>

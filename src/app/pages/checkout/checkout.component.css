@@ -1,0 +1,62 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.checkout-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.checkout-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.checkout-section {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.form-field input {
+  width: 100%;
+  height: 50px;
+  font-size: 1.1rem;
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.payment-button {
+  height: 120px !important;
+  font-size: 1.5rem !important;
+}
+
+.next-button {
+  width: 100%;
+  height: 60px;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.back-button {
+  font-size: 1.5rem;
+}
