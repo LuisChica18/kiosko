@@ -72,3 +72,55 @@
 .error-state button {
   margin-top: 1rem;
 }
+
+.qr-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+.qr-state i {
+  font-size: 3rem;
+  color: #2196F3;
+  margin-bottom: 1rem;
+}
+
+.qr-code {
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.qr-code img {
+  max-width: 250px;
+  height: auto;
+}
+
+.amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0 2rem;
+  color: #2196F3;
+}
+
+.confirm-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.back-button {
+  padding: 0.5rem !important;
+}

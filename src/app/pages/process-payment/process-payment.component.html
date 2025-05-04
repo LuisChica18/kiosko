@@ -1,5 +1,32 @@
 <div class="payment-container">
   <div class="payment-card" [ngClass]="paymentStatus">
+
+    <!-- QR Code State - Only for Cash Payments -->
+    <div *ngIf="paymentStatus === 'qr' && paymentType === 'cash'" class="qr-state">
+      <i class="pi pi-mobile"></i>
+      <div class="header">
+        <button pButton type="button"
+                icon="pi pi-arrow-left"
+                class="p-button-text back-button"
+                (click)="goBackToCheckout()">
+        </button>
+        <h2>Pago con DeUna</h2>
+      </div>
+      <p>Escanea el código QR con la app DeUna</p>
+      <div class="qr-code">
+        <img [src]="qrCodeUrl" alt="QR Code">
+      </div>
+      <div class="amount">
+        Total a pagar: ${{totalAmount.toFixed(2)}}
+      </div>
+      <button pButton type="button"
+              label="Confirmar Pago"
+              icon="pi pi-check"
+              class="p-button-success p-button-lg confirm-button"
+              (click)="startPaymentProcess()">
+      </button>
+    </div>
+
     <!-- Processing State -->
     <div *ngIf="paymentStatus === 'processing'" class="processing-state">
       <i class="pi pi-spin pi-spinner"></i>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../interface/category.interface';
 import { CartItem } from '../../interface/cart-item.interface';
 import { Router } from '@angular/router';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-menu-selection',
@@ -114,12 +115,23 @@ export class MenuSelectionComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
     if (this.categories.length > 0) {
       this.selectedCategory = this.categories[0];
     }
+    // Subscribe to cart service updates
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+
+    this.cartService.totalAmount$.subscribe(total => {
+      this.totalAmount = total;
+    });
   }
 
   selectCategory(category: Category): void {
@@ -172,10 +184,12 @@ export class MenuSelectionComponent implements OnInit {
     console.log('clear cart');
     this.cartItems = [];
     this.totalAmount = 0;
+    this.cartService.clearCart(); // Add this line to clear the service state
   }
 
   goToCheckout(): void {
     if (this.cartItems.length > 0) {
+      this.cartService.updateCart(this.cartItems);
       this.router.navigate(['/checkout']);
     }
   }

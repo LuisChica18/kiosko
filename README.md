@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
 
+## Environment Setup
+
+1. Copy `src/environments/environment.example.ts` to `src/environments/environment.ts`
+2. Update `environment.ts` with your DeUna QR URL
+3. For production, update `environment.prod.ts` with production values
+
+**Note:** Environment files are git-ignored for security. Make sure to keep your QR URLs private.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
