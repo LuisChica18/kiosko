@@ -1,20 +1,29 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
+
+// PrimeNG Imports
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
+import { DividerModule } from 'primeng/divider';
+import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { ConfirmationService } from 'primeng/api';
+
+// App Imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonModule } from 'primeng/button';
 import { InitialPageComponent } from './pages/initial-page/initial-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuSelectionComponent } from './pages/menu-selection/menu-selection.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProcessPaymentComponent } from './pages/process-payment/process-payment.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
-import {NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,16 +37,21 @@ import {NgOptimizedImage} from '@angular/common';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ButtonModule,
-    AppRoutingModule,
     ReactiveFormsModule,
+    NgOptimizedImage,
+    AppRoutingModule,
+    // PrimeNG Modules
+    ButtonModule,
     InputTextModule,
+    InputNumberModule,
     ConfirmDialogModule,
     TooltipModule,
-    NgOptimizedImage
+    DividerModule,
+    CardModule,
+    CheckboxModule,
+    RadioButtonModule
   ],
   providers: [
-    provideClientHydration(),
     ConfirmationService
   ],
   bootstrap: [AppComponent]

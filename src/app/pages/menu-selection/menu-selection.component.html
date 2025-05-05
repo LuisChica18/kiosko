@@ -14,8 +14,9 @@
             type="button"
             [label]="category.name"
             [icon]="category.icon"
-            class="category-button p-button-text"
-            [class.selected]="selectedCategory?.id === category.id"
+            class="category-button p-button-raised p-button-lg"
+            [class.p-button-outlined]="selectedCategory?.id !== category.id"
+            [class.p-button-primary]="selectedCategory?.id === category.id"
             (click)="selectCategory(category)">
     </button>
   </div>
